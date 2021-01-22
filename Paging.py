@@ -1,7 +1,9 @@
 # The list of program words requested by program
-wordBank = [10,11,104,170,73,309,185,245,246,434,458]
+wordBank = [10, 11, 104, 170, 73, 309, 185, 245, 246, 434, 458]
 
 # Make a class for the paging system because why not
+
+
 class PagingCounter:
 
     # Initializes variables for the program
@@ -14,7 +16,7 @@ class PagingCounter:
     def toMemory(self, wordVal):
 
         # This gives page number as per instructions
-        self.pageLocation = int(wordVal /self.pageSize)
+        self.pageLocation = int(wordVal / self.pageSize)
 
         # Return true if already loaded in memory, false if not
         if self.pageLocation in self.pageBank:
@@ -38,18 +40,19 @@ class PagingCounter:
         return successCounter
 
 
+# Starts making the requests and printing the findings.
 print("a.)  Find the success frequency for the request list using a FIFO replacement Algorithm and a page size of 100 words (there are two page frames).")
-page1 = PagingCounter(200,100)
+page1 = PagingCounter(200, 100)
 answer = page1.initPaging()
 print("The success frequency is: " + str(answer) + ".\n")
 
 print("b.)  Find the success frequency for the request list using a FIFO replacement Algorithm and a page size of 20 words (10 pages, 0 through 9).")
-page2 = PagingCounter(200,20)
+page2 = PagingCounter(200, 20)
 answer = page2.initPaging()
 print("The success frequency is: " + str(answer) + ".\n")
 
 print("c.)  Find the success frequency for the request list using a FIFO replacement Algorithm and a page size of 200 words.")
-page3 = PagingCounter(200,200)
+page3 = PagingCounter(200, 200)
 answer = page3.initPaging()
 print("The success frequency is: " + str(answer) + ".\n")
 
@@ -63,15 +66,16 @@ print("Using smaller pages means that a program takes less space in memory, so m
       "success frequency decreases, so the program needs to itself into memory more often making the overall procedure slower. \n")
 
 print("f.)  Repeat (a) through (c) above, using a main memory of 400 words. The size of each page frame will again correspond to the size of the page.")
-page4 = PagingCounter(400,100)
+page4 = PagingCounter(400, 100)
 answer = page4.initPaging()
 print("The success frequency for memory size 400 and page size 100 is: " + str(answer))
-page5 = PagingCounter(400,20)
+page5 = PagingCounter(400, 20)
 answer = page5.initPaging()
 print("The success frequency for memory size 400 and page size 20 is: " + str(answer))
-page6 = PagingCounter(400,200)
+page6 = PagingCounter(400, 200)
 answer = page6.initPaging()
-print("The success frequency for memory size 400 and page size 200 is: " + str(answer) + ".\n")
+print("The success frequency for memory size 400 and page size 200 is: " +
+      str(answer) + ".\n")
 
 print("g.)  What happened when more memory was given to the program? Can you make some general statements about this occurrence?" +
       "What changes might you expect to see if the request list was much longer, as it would be in real life?")
@@ -87,5 +91,3 @@ print("The success rate of a real program would be higher in the same memory and
       "sequention in nature as explained above \n \n")
 
 input("Press any key to close...")
-
-
