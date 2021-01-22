@@ -3,15 +3,19 @@ wordBank = [10,11,104,170,73,309,185,245,246,434,458]
 
 # Make a class for the paging system because why not
 class PagingCounter:
+
     # Initializes variables for the program
     def __init__(self, _memSize, _pageSize):
         self.memSize = _memSize
         self.pageSize = _pageSize
         self.pageBank = []
+
     # This function checks if word is in memory, if not uses queue method to load page to memory
     def toMemory(self, wordVal):
+
         # This gives page number as per instructions
         self.pageLocation = int(wordVal /self.pageSize)
+
         # Return true if already loaded in memory, false if not
         if self.pageLocation in self.pageBank:
             return True
@@ -23,16 +27,14 @@ class PagingCounter:
                 self.pageBank.pop(0)
                 self.pageBank.append(self.pageLocation)
                 return False
+
     # This function initializes the paging process for a given scenario and return counter
     def initPaging(self):
         successCounter = 0
+
         for i in wordBank:
-           # print("Word: " + str(i))
             if self.toMemory(i):
                 successCounter += 1
-           #     print("success")
-           # else:
-           #     print("Fail")
         return successCounter
 
 
